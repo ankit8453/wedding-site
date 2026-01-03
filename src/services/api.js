@@ -3,6 +3,32 @@
 
 const GOOGLE_SHEETS_URL = 'YOUR_GOOGLE_SHEETS_WEB_APP_URL';
 
+// Family Connect Registration
+export const submitRegistration = async (formData) => {
+  try {
+    const response = await fetch(GOOGLE_SHEETS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        timestamp: new Date().toISOString(),
+        name: formData.name,
+        phone: formData.phone,
+        side: formData.side,
+        relation: formData.relation,
+      }),
+    });
+
+    return { success: true };
+  } catch (error) {
+    console.error('Error submitting registration:', error);
+    return { success: false, error: error.message };
+  }
+};
+
+// Legacy RSVP function (kept for compatibility)
 export const submitRSVP = async (formData) => {
   try {
     const response = await fetch(GOOGLE_SHEETS_URL, {

@@ -37,7 +37,7 @@ export const Countdown = () => {
   ];
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-cream to-white relative overflow-hidden">
+    <section className="py-24 px-6 bg-gradient-to-b from-stone-50 to-amber-50/30 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-10 left-10 w-32 h-32 opacity-10">
         <svg viewBox="0 0 100 100" className="w-full h-full">
@@ -118,42 +118,6 @@ export const Countdown = () => {
           ))}
         </div>
 
-        {/* Additional info */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center mt-12"
-        >
-          <GlassCard hover={false}>
-            <div className="grid md:grid-cols-2 gap-8 border-2 border-gold/30 rounded-2xl p-6">
-              <div className="text-center md:text-left">
-                <div className="w-12 h-12 indian-gradient rounded-full flex items-center justify-center mx-auto md:mx-0 mb-3">
-                  <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2L15 9L22 9L16.5 13.5L19 21L12 16L5 21L7.5 13.5L2 9L9 9L12 2Z" />
-                  </svg>
-                </div>
-                <h3 className="font-serif text-2xl font-bold mb-2 text-maroon">Engagement Ceremony</h3>
-                <p className="text-charcoal/70 text-lg mb-1">6:00 PM onwards</p>
-                <p className="text-sm text-charcoal/60">Grand Celebration Hall</p>
-                <p className="text-xs text-maroon mt-2 font-serif">सगाई समारोह</p>
-              </div>
-              <div className="text-center md:text-left border-t md:border-t-0 md:border-l border-gold/20 pt-8 md:pt-0 md:pl-8">
-                <div className="w-12 h-12 indian-gradient rounded-full flex items-center justify-center mx-auto md:mx-0 mb-3">
-                  <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <h3 className="font-serif text-2xl font-bold mb-2 text-maroon">Venue</h3>
-                <p className="text-charcoal/70 mb-1">Civil Lines</p>
-                <p className="text-sm text-charcoal/60">Jabalpur, Madhya Pradesh</p>
-                <p className="text-xs text-maroon mt-2 font-serif">जबलपुर, मध्य प्रदेश</p>
-              </div>
-            </div>
-          </GlassCard>
-        </motion.div>
       </div>
     </section>
   );

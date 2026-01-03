@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Heart } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+
+// Decorative Om/Mandala Symbol
+const OmSymbol = () => (
+  <svg className="w-10 h-10" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2L15 9L22 9L16.5 13.5L19 21L12 16L5 21L7.5 13.5L2 9L9 9L12 2Z" />
+    <circle cx="12" cy="12" r="3" className="fill-[#D4AF37]" />
+  </svg>
+);
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,32 +38,26 @@ export const Navbar = () => {
       transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
       className={`
         fixed top-0 left-0 right-0 z-50 transition-all duration-300
-        ${isScrolled 
-          ? 'glass-effect shadow-lg py-4' 
-          : 'bg-transparent py-6'
-        }
+        bg-[#800000] shadow-lg
+        ${isScrolled ? 'py-3' : 'py-4'}
       `}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3 group">
           <motion.div
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.3 }}
+            whileHover={{ scale: 1.1, rotate: 360 }}
+            transition={{ duration: 0.6 }}
             className="relative"
           >
-            {/* Indian Mandala/Om symbol */}
-            <svg className="w-8 h-8 text-maroon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L15 9L22 9L16.5 13.5L19 21L12 16L5 21L7.5 13.5L2 9L9 9L12 2Z" />
-            </svg>
-            <div className="absolute inset-0 rounded-full border-2 border-gold opacity-0 group-hover:opacity-100 transition-opacity" />
+            <OmSymbol />
           </motion.div>
           <div className="flex flex-col">
-            <span className="font-serif text-xl md:text-2xl font-bold text-maroon text-shadow-luxury leading-tight">
+            <span className="font-serif text-2xl md:text-3xl font-bold text-[#D4AF37] leading-tight">
               Priya & Mihir
             </span>
-            <span className="text-xs text-gold font-medium tracking-wider">
-              शुभ विवाह
+            <span className="text-xs text-[#D4AF37]/80 font-medium tracking-widest">
+              The Engagement
             </span>
           </div>
         </Link>
@@ -69,10 +71,10 @@ export const Navbar = () => {
               className="relative group"
             >
               <span className={`
-                font-medium transition-colors duration-300
+                font-semibold transition-colors duration-300 text-lg
                 ${location.pathname === link.path 
-                  ? 'text-maroon' 
-                  : 'text-charcoal hover:text-maroon'
+                  ? 'text-[#D4AF37]' 
+                  : 'text-[#D4AF37]/70 hover:text-[#D4AF37]'
                 }
               `}>
                 {link.name}
@@ -80,7 +82,7 @@ export const Navbar = () => {
               {location.pathname === link.path && (
                 <motion.div
                   layoutId="navbar-indicator"
-                  className="absolute -bottom-1 left-0 right-0 h-1 indian-gradient rounded-full"
+                  className="absolute -bottom-1 left-0 right-0 h-1 bg-[#D4AF37] rounded-full"
                   transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                 />
               )}
@@ -91,12 +93,12 @@ export const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden p-2 rounded-lg glass-effect"
+          className="md:hidden p-2 rounded-lg bg-[#D4AF37]/20 hover:bg-[#D4AF37]/30 transition-colors"
         >
           {isMobileMenuOpen ? (
-            <X className="w-6 h-6" />
+            <X className="w-6 h-6 text-[#D4AF37]" />
           ) : (
-            <Menu className="w-6 h-6" />
+            <Menu className="w-6 h-6 text-[#D4AF37]" />
           )}
         </button>
       </div>
@@ -108,7 +110,7 @@ export const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-effect mt-4 mx-6 rounded-2xl overflow-hidden"
+            className="md:hidden bg-[#800000] border-t border-[#D4AF37]/30 mt-4"
           >
             <div className="py-4">
               {navLinks.map((link, index) => (
@@ -122,10 +124,10 @@ export const Navbar = () => {
                     to={link.path}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`
-                      block px-6 py-3 font-medium transition-colors
+                      block px-6 py-3 font-semibold transition-colors
                       ${location.pathname === link.path
-                        ? 'text-maroon bg-maroon/10 border-l-4 border-gold'
-                        : 'text-charcoal hover:bg-maroon/5'
+                        ? 'text-[#D4AF37] bg-[#D4AF37]/10 border-l-4 border-[#D4AF37]'
+                        : 'text-[#D4AF37]/70 hover:bg-[#D4AF37]/5 hover:text-[#D4AF37]'
                       }
                     `}
                   >
@@ -140,4 +142,3 @@ export const Navbar = () => {
     </motion.nav>
   );
 };
-

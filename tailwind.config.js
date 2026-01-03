@@ -17,7 +17,7 @@ export default {
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'serif'],
-        sans: ['"DM Sans"', 'sans-serif'],
+        sans: ['"Lato"', 'sans-serif'],
       },
       animation: {
         'float': 'float 3s ease-in-out infinite',

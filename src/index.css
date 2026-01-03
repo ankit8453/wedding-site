@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Lato:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,7 +10,8 @@
   }
   
   body {
-    @apply bg-cream text-charcoal font-sans antialiased;
+    @apply bg-stone-50 text-charcoal antialiased;
+    font-family: 'Lato', sans-serif;
   }
 
   /* Indian motif pattern overlay */
