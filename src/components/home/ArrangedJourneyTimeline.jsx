@@ -30,7 +30,7 @@ const journeyEvents = [
     subtitle: 'रिश्ता',
     description: 'When our families first met and saw the beautiful possibility of uniting two souls destined to be together.',
     icon: Users,
-    date: 'September 2025',
+    date: 'December 2025',
   },
   {
     step: 'Step 2',
@@ -38,7 +38,7 @@ const journeyEvents = [
     subtitle: 'रोका',
     description: 'It became official! A sacred ceremony where both families blessed our union and the relationship was formalized.',
     icon: Handshake,
-    date: 'November 2025',
+    date: 'January 9, 2026',
   },
   {
     step: 'Step 3',

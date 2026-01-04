@@ -18,7 +18,7 @@ const journeyEvents = [
     subtitle: 'रिश्ता - Family Meeting',
     description: 'Destiny brought our families together. A conversation over chai that started it all. When two families met and saw the beautiful possibility of uniting two souls.',
     icon: Users,
-    date: 'September 2025',
+    date: 'December 2025',
   },
   {
     step: 'Chapter 2',
@@ -26,7 +26,7 @@ const journeyEvents = [
     subtitle: 'नज़र - First Glance',
     description: 'Priya & Mihir met for the first time. A few shy smiles and we knew this was meant to be. Sometimes the heart knows before words are spoken.',
     icon: Eye,
-    date: 'October 2025',
+    date: 'December 2025',
   },
   {
     step: 'Chapter 3',
@@ -34,7 +34,7 @@ const journeyEvents = [
     subtitle: 'रोका - Official Seal',
     description: 'With the blessings of our elders, we made it official. A sacred ceremony where both families blessed our union and the relationship was formalized.',
     icon: Handshake,
-    date: 'November 2025',
+    date: 'January 9, 2026',
   },
   {
     step: 'Chapter 4',
