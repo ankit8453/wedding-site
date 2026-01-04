@@ -1,6 +1,6 @@
 // Google Sheets API integration
 // ⚠️ IMPORTANT: Replace this URL with the one you copied from "Deploy > Web App"
-const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzYAjaB98xjMvJwna3PWF_ZCGu3tK0oP6L_IcxxhZisvSoYZhiQExbsKYfhROc4yOBW/execYOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzYAjaB98xjMvJwna3PWF_ZCGu3tK0oP6L_IcxxhZisvSoYZhiQExbsKYfhROc4yOBW/exec';
 
 // Family Connect Registration
 export const submitRegistration = async (formData) => {
