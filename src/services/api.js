@@ -1,78 +1,87 @@
 // Google Sheets API integration
-// Replace with your actual Google Sheets Web App URL
-
-const GOOGLE_SHEETS_URL = 'YOUR_GOOGLE_SHEETS_WEB_APP_URL';
+// ⚠️ IMPORTANT: Replace this URL with the one you copied from "Deploy > Web App"
+const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzYAjaB98xjMvJwna3PWF_ZCGu3tK0oP6L_IcxxhZisvSoYZhiQExbsKYfhROc4yOBW/execYOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
 
 // Family Connect Registration
 export const submitRegistration = async (formData) => {
   try {
+    // We use URLSearchParams to send data as 'application/x-www-form-urlencoded'
+    // This is much more reliable for Google Apps Script than JSON
+    const params = new URLSearchParams();
+    
+    // These keys must match exactly what we wrote in the Apps Script (p.fullName, etc.)
+    params.append('fullName', formData.fullName);
+    params.append('phone', formData.phone);
+    params.append('side', formData.side);
+    params.append('relation', formData.relation);
+
     const response = await fetch(GOOGLE_SHEETS_URL, {
       method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        timestamp: new Date().toISOString(),
-        name: formData.name,
-        phone: formData.phone,
-        side: formData.side,
-        relation: formData.relation,
-      }),
+      body: params,
+      // We do NOT set 'mode: no-cors' or JSON headers here
+      // allowing the browser to follow the Google redirect naturally
     });
 
-    return { success: true };
+    const result = await response.json();
+    return result; // Returns { result: 'success', row: [...] }
+
   } catch (error) {
     console.error('Error submitting registration:', error);
-    return { success: false, error: error.message };
+    return { result: 'error', error: error.message };
   }
 };
 
-// Legacy RSVP function (kept for compatibility)
-export const submitRSVP = async (formData) => {
-  try {
-    const response = await fetch(GOOGLE_SHEETS_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        timestamp: new Date().toISOString(),
-        ...formData,
-      }),
-    });
-
-    return { success: true };
-  } catch (error) {
-    console.error('Error submitting RSVP:', error);
-    return { success: false, error: error.message };
-  }
-};
-
-// Instructions for setting up Google Sheets:
-// 1. Create a new Google Sheet
-// 2. Go to Extensions > Apps Script
-// 3. Add the following code:
+// ==========================================
+// INSTRUCTIONS FOR GOOGLE APPS SCRIPT SETUP
+// ==========================================
+// 1. Go to your Google Sheet -> Extensions -> Apps Script
+// 2. Delete existing code and PASTE THIS EXACT CODE:
 /*
-function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSheet();
-  var data = JSON.parse(e.postData.contents);
-  
-  sheet.appendRow([
-    data.timestamp,
-    data.name,
-    data.email,
-    data.phone,
-    data.guests,
-    data.dietary,
-    data.message
-  ]);
-  
-  return ContentService.createTextOutput(JSON.stringify({success: true}))
-    .setMimeType(ContentService.MimeType.JSON);
-}
-*/
-// 4. Deploy as Web App
-// 5. Copy the URL and replace GOOGLE_SHEETS_URL above
 
+const SHEET_NAME = "Guests"; // Ensure your tab is named "Guests"
+
+function doPost(e) {
+  const lock = LockService.getScriptLock();
+  lock.tryLock(10000);
+
+  try {
+    const doc = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = doc.getSheetByName(SHEET_NAME);
+
+    const p = e.parameter; // Grab data from URL parameters
+
+    const newRow = [
+      new Date(),       // A: Timestamp
+      p.fullName,       // B: Name
+      p.phone,          // C: Phone
+      p.side,           // D: Side
+      p.relation        // E: Relation
+    ];
+
+    sheet.appendRow(newRow);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'success', 'row': newRow }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch (e) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'error', 'error': e.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+// Run this once to accept permissions
+function initialSetup() {
+  const doc = SpreadsheetApp.getActiveSpreadsheet();
+  console.log("Active Sheet: " + doc.getName());
+}
+
+*/
+// 3. Save -> Run 'initialSetup' -> Accept Permissions
+// 4. Deploy -> New Deployment -> Type: Web App
+// 5. Execute as: "Me"
+// 6. Who has access: "Anyone" (CRITICAL!)
+// 7. Copy the URL and paste it at the top of this file.

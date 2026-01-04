@@ -3,11 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Loader2, Users } from 'lucide-react';
 import { PageTransition } from '../components/ui';
 import { useNavigate } from 'react-router-dom';
+import { submitRegistration } from '../services/api'; // Import the real API service
 
 export const Register = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: '',
+    fullName: '', // Changed to match Google Sheet Header
     phone: '',
     side: '',
     relation: '',
@@ -28,24 +29,34 @@ export const Register = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call (replace with actual backend when ready)
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // REAL API CALL to Google Sheets
+      const response = await submitRegistration(formData);
 
-      // Save to localStorage
-      localStorage.setItem('registeredUser', JSON.stringify({
-        name: formData.name,
-        phone: formData.phone,
-      }));
+      if (response.result === 'success') {
+        // Save to localStorage so we remember they are registered
+        localStorage.setItem('guestRegistration', JSON.stringify({
+          name: formData.fullName,
+          phone: formData.phone,
+          side: formData.side
+        }));
 
-      setIsSubmitting(false);
-      setIsSuccess(true);
+        setIsSubmitting(false);
+        setIsSuccess(true);
 
-      // Redirect to Home after 3 seconds
-      setTimeout(() => {
-        navigate('/');
-      }, 3000);
+        // Redirect to Home after 3 seconds
+        setTimeout(() => {
+          navigate('/');
+        }, 3000);
+      } else {
+        // Handle Google Script Error
+        alert("Something went wrong. Please try again.");
+        console.error("API Error:", response.error);
+        setIsSubmitting(false);
+      }
+
     } catch (error) {
-      console.error('Registration error:', error);
+      console.error('Network error:', error);
+      alert("Network error. Please check your internet connection.");
       setIsSubmitting(false);
     }
   };
@@ -116,8 +127,8 @@ export const Register = () => {
                   <div className="relative">
                     <input
                       type="text"
-                      name="name"
-                      value={formData.name}
+                      name="fullName"
+                      value={formData.fullName}
                       onChange={handleChange}
                       required
                       placeholder=" "
@@ -156,9 +167,9 @@ export const Register = () => {
                       className="w-full px-4 py-3 bg-white/50 border-2 border-[#800000]/20 rounded-xl focus:border-[#800000] focus:outline-none transition-all duration-300 appearance-none cursor-pointer font-medium text-gray-700"
                     >
                       <option value="">Select Side *</option>
-                      <option value="bride">Bride's Side (लड़की वाले)</option>
-                      <option value="groom">Groom's Side (लड़के वाले)</option>
-                      <option value="friend">Friend</option>
+                      <option value="Bride Side">Bride's Side (लड़की वाले)</option>
+                      <option value="Groom Side">Groom's Side (लड़के वाले)</option>
+                      <option value="Friend">Friend</option>
                     </select>
                     <label className="absolute left-4 -top-2.5 bg-white px-2 text-sm text-[#800000] font-semibold">
                       Which Side?
@@ -276,7 +287,7 @@ export const Register = () => {
                     transition={{ delay: 0.5 }}
                     className="text-gray-700 mb-2"
                   >
-                    Thank you, <span className="font-bold text-[#800000]">{formData.name}</span>!
+                    Thank you, <span className="font-bold text-[#800000]">{formData.fullName}</span>!
                   </motion.p>
                   <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -308,9 +319,8 @@ export const Register = () => {
             className="mt-8 text-center text-sm text-gray-600"
           >
             <p>
-              Need help? Contact us at{' '}
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="text-[#800000] hover:text-[#D4AF37] hover:underline transition-colors font-semibold">
-                WhatsApp
+              Need help? Contact us{' '}
+              <a href="https://wa.me/919993448391" target="_blank" rel="noopener noreferrer" className="text-[#800000] hover:text-[#D4AF37] hover:underline transition-colors font-semibold">
               </a>
             </p>
           </motion.div>
