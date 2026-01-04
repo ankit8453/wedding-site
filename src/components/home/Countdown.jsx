@@ -72,13 +72,13 @@ export const Countdown = () => {
             </svg>
           </motion.div>
           
-          <h2 className="font-serif text-5xl md:text-6xl font-bold mb-4 text-shadow-luxury text-maroon">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-6xl font-bold mb-4 text-shadow-luxury text-maroon">
             The Auspicious Day
           </h2>
-          <p className="text-lg text-charcoal/70 mb-2">
+          <p className="text-base sm:text-lg text-charcoal/70 mb-2">
             Counting down to the celebration
           </p>
-          <p className="text-maroon font-serif">
+          <p className="text-maroon font-serif text-sm sm:text-base">
             शुभ मुहूर्त
           </p>
         </motion.div>
@@ -94,14 +94,14 @@ export const Countdown = () => {
                 className="text-center"
               >
                 <motion.div
-                  className="font-serif text-5xl md:text-6xl font-bold text-maroon mb-2"
+                  className="font-serif text-3xl sm:text-4xl md:text-6xl font-bold text-maroon mb-2"
                   style={{
                     textShadow: '0 0 20px rgba(109, 14, 14, 0.3)',
                   }}
                 >
                   {String(unit.value).padStart(2, '0')}
                 </motion.div>
-                <div className="text-sm md:text-base font-medium text-gold uppercase tracking-wider">
+                <div className="text-xs sm:text-sm md:text-base font-medium text-gold uppercase tracking-wider">
                   {unit.label}
                 </div>
                 

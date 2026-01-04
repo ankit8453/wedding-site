@@ -82,13 +82,13 @@ export const Register = () => {
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
               className="inline-block mb-6"
             >
-              <Users className="w-12 h-12 text-[#800000]" />
+              <Users className="w-10 h-10 sm:w-12 sm:h-12 text-[#800000]" />
             </motion.div>
             
-            <h1 className="font-serif text-5xl md:text-6xl font-black text-[#800000] mb-4">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl font-black text-[#800000] mb-4">
               Family Connect
             </h1>
-            <p className="text-xl text-gray-700 font-semibold mb-2">
+            <p className="text-lg sm:text-xl text-gray-700 font-semibold mb-2">
               Register for the celebration
             </p>
             <p className="text-[#800000] font-serif italic">
@@ -257,7 +257,7 @@ export const Register = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="font-serif text-3xl font-bold mb-2 text-[#800000]"
+                    className="font-serif text-2xl sm:text-3xl font-bold mb-2 text-[#800000]"
                   >
                     स्वागत है!
                   </motion.h3>
@@ -265,7 +265,7 @@ export const Register = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.45 }}
-                    className="text-[#D4AF37] font-bold text-xl mb-3"
+                    className="text-[#D4AF37] font-bold text-lg sm:text-xl mb-3"
                   >
                     Registration Successful!
                   </motion.p>

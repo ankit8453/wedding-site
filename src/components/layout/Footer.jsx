@@ -26,9 +26,11 @@ export const Footer = () => {
           {/* Brand */}
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start space-x-3 mb-4">
-              <svg className="w-10 h-10 text-[#D4AF37]" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L15 9L22 9L16.5 13.5L19 21L12 16L5 21L7.5 13.5L2 9L9 9L12 2Z" />
-              </svg>
+              <img 
+                src="/images/pm-logo.png" 
+                alt="Priya & Mihir Logo" 
+                className="h-12 w-auto object-contain"
+              />
               <div className="flex flex-col">
                 <span className="font-serif text-3xl font-bold">Priya & Mihir</span>
                 <span className="text-xs tracking-widest opacity-80">The Engagement</span>
@@ -79,20 +81,44 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
+        {/* Copyright & Developer Credit */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-center pt-8 border-t border-[#D4AF37]/30"
         >
-          <p className="text-[#D4AF37]/70 text-sm mb-2">
-            © 2026 Priya & Mihir. Made with{' '}
-            <svg className="inline w-4 h-4 text-[#D4AF37]" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L15 9L22 9L16.5 13.5L19 21L12 16L5 21L7.5 13.5L2 9L9 9L12 2Z" />
-            </svg>
-            {' '}for a blessed union.
+          {/* Row 1: Copyright */}
+          <p className="text-[#D4AF37] text-base md:text-lg font-serif mb-3">
+            © 2026 The Wedding of Priya & Mihir. Celebrating Love.
           </p>
+          
+          {/* Row 2: Developer Signature */}
+          <div className="mb-3">
+            <p className="text-[#D4AF37]/90 text-sm md:text-base font-medium mb-2">
+              Website Handcrafted with ❤️ by <span className="font-bold text-[#D4AF37]">Ankit</span> 
+              <span className="text-[#D4AF37]/70 italic"> (Bride's Brother)</span>
+            </p>
+            
+            {/* Contact Details */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-amber-500/80 text-xs md:text-sm">
+              <a 
+                href="mailto:ankit.pawar0786@gmail.com" 
+                className="hover:text-amber-400 transition-colors duration-300 flex items-center gap-1"
+              >
+                📧 ankit.pawar0786@gmail.com
+              </a>
+              <span className="hidden sm:inline text-amber-500/50">|</span>
+              <a 
+                href="tel:+919993448392" 
+                className="hover:text-amber-400 transition-colors duration-300 flex items-center gap-1"
+              >
+                📞 +91 99934 48392
+              </a>
+            </div>
+          </div>
+
+          {/* Hindi Welcome */}
           <p className="text-[#D4AF37]/60 text-xs font-serif italic">
             आपका स्वागत है
           </p>

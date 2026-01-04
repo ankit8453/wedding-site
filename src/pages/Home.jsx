@@ -1,7 +1,7 @@
 import { Hero } from '../components/home/Hero';
 import { Countdown } from '../components/home/Countdown';
 import { Venue } from '../components/home/Venue';
-import { ExploreJabalpur } from '../components/home/ExploreJabalpur';
+import { SoulOfJabalpur } from '../components/home/SoulOfJabalpur';
 import { PageTransition, FlowerShower } from '../components/ui';
 
 export const Home = () => {
@@ -10,7 +10,7 @@ export const Home = () => {
       <Hero />
       <Countdown />
       <Venue />
-      <ExploreJabalpur />
+      <SoulOfJabalpur />
       <FlowerShower />
     </PageTransition>
   );

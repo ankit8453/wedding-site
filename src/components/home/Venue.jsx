@@ -22,14 +22,14 @@ export const Venue = () => {
         >
           <div className="flex items-center justify-center space-x-4 mb-6">
             <div className="w-20 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
-            <MapPin className="w-10 h-10 text-[#800000]" />
+            <MapPin className="w-8 h-8 sm:w-10 sm:h-10 text-[#800000]" />
             <div className="w-20 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
           </div>
           
-          <h2 className="font-serif text-6xl md:text-7xl font-black text-[#800000] mb-4">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-7xl font-black text-[#800000] mb-4">
             Venue Details
           </h2>
-          <p className="text-xl text-gray-700 font-medium">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 font-medium">
             Where the celebration unfolds
           </p>
         </motion.div>
@@ -57,15 +57,15 @@ export const Venue = () => {
             </div>
 
             {/* Venue Details */}
-            <div className="p-10 bg-gradient-to-br from-white to-amber-50/20">
+            <div className="p-6 sm:p-8 md:p-10 bg-gradient-to-br from-white to-amber-50/20">
               <div className="grid md:grid-cols-2 gap-8 mb-8">
                 {/* Left Side - Venue Name & Address */}
                 <div>
                   <div className="inline-block px-4 py-2 bg-[#800000] text-white rounded-full mb-4">
-                    <span className="font-bold text-sm uppercase tracking-wider">Engagement Venue</span>
+                    <span className="font-bold text-xs sm:text-sm uppercase tracking-wider">Engagement Venue</span>
                   </div>
                   
-                  <h3 className="font-serif text-4xl md:text-5xl font-black text-[#800000] mb-4">
+                  <h3 className="font-serif text-2xl sm:text-3xl md:text-5xl font-black text-[#800000] mb-4">
                     Hotel Shri Ganesh
                   </h3>
                   
@@ -73,7 +73,7 @@ export const Venue = () => {
                     <div className="flex items-start space-x-3">
                       <MapPin className="w-6 h-6 text-[#D4AF37] flex-shrink-0 mt-1" />
                       <div>
-                        <p className="text-lg text-gray-700 font-medium leading-relaxed">
+                        <p className="text-sm sm:text-base md:text-lg text-gray-700 font-medium leading-relaxed">
                           Infront of RTO Office, Patan Rd,<br />
                           Karmeta, Jabalpur, MP
                         </p>
@@ -86,13 +86,13 @@ export const Venue = () => {
                 <div className="flex flex-col justify-center">
                   <div className="bg-white border-2 border-[#D4AF37] rounded-xl p-6 shadow-lg">
                     <div className="flex items-center space-x-3 mb-4">
-                      <Clock className="w-8 h-8 text-[#800000]" />
+                      <Clock className="w-7 h-7 sm:w-8 sm:h-8 text-[#800000]" />
                       <div>
                         <p className="text-sm text-gray-600 font-semibold uppercase tracking-wider">
                           Event Timing
                         </p>
-                        <p className="text-2xl font-bold text-[#800000]">
-                          6:00 PM Onwards
+                        <p className="text-xl sm:text-2xl font-bold text-[#800000]">
+                          12:00 PM Onwards
                         </p>
                       </div>
                     </div>

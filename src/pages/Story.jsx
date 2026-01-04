@@ -90,16 +90,16 @@ export const Story = () => {
               <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
             </div>
 
-            <h1 className="font-serif text-6xl md:text-7xl font-black text-[#800000] mb-4">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl font-black text-[#800000] mb-4">
               Our Story
             </h1>
-            <p className="text-2xl text-gray-700 font-semibold mb-3">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 font-semibold mb-3">
               A Beautiful Arranged Marriage
             </p>
-            <p className="text-lg text-gray-600 italic">
+            <p className="text-base sm:text-lg text-gray-600 italic">
               When families unite, hearts follow
             </p>
-            <p className="text-[#800000] font-serif text-xl mt-2">
+            <p className="text-[#800000] font-serif text-lg sm:text-xl mt-2">
               परिवारों का मिलन
             </p>
           </motion.div>
@@ -150,17 +150,17 @@ export const Story = () => {
                         <div className="text-[#D4AF37] font-semibold text-sm uppercase tracking-widest mb-2">
                           {event.step}
                         </div>
-                        <h3 className="font-serif text-4xl font-black mb-2 text-[#800000]">
+                        <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-black mb-2 text-[#800000]">
                           {event.title}
                         </h3>
-                        <p className="text-[#800000]/70 font-serif text-lg mb-4 italic">
+                        <p className="text-[#800000]/70 font-serif text-base sm:text-lg mb-4 italic">
                           {event.subtitle}
                         </p>
                         <div className={`
                           w-20 h-1 bg-[#D4AF37] mb-6
                           ${isLeft ? 'md:ml-auto' : 'md:mr-auto'} mx-auto
                         `} />
-                        <p className="text-gray-700 leading-relaxed text-lg mb-6">
+                        <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg mb-6">
                           {event.description}
                         </p>
                         <div className={`
@@ -184,13 +184,13 @@ export const Story = () => {
                       className="absolute left-1/2 -translate-x-1/2 md:relative md:left-0 md:translate-x-0 z-10"
                     >
                       <div className={`
-                        w-24 h-24 rounded-full flex items-center justify-center shadow-2xl border-4 border-[#D4AF37]
+                        w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-2xl border-2 sm:border-3 md:border-4 border-[#D4AF37]
                         ${event.isCurrent 
                           ? 'bg-gradient-to-r from-[#800000] to-[#A00000]' 
                           : 'bg-gradient-to-br from-[#800000] to-[#600000]'
                         }
                       `}>
-                        <Icon className="w-11 h-11 text-[#D4AF37]" />
+                        <Icon className="w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 text-[#D4AF37]" />
                       </div>
                       {/* Decorative ring around icon */}
                       <motion.div
@@ -223,24 +223,24 @@ export const Story = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-center mt-24"
           >
-            <div className="inline-block bg-white border-4 border-[#D4AF37] rounded-3xl p-12 shadow-2xl">
-              <svg className="w-16 h-16 text-[#D4AF37] mx-auto mb-6" viewBox="0 0 24 24" fill="currentColor">
+            <div className="inline-block bg-white border-4 border-[#D4AF37] rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl">
+              <svg className="w-12 h-12 sm:w-16 sm:h-16 text-[#D4AF37] mx-auto mb-6" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2L15 9L22 9L16.5 13.5L19 21L12 16L5 21L7.5 13.5L2 9L9 9L12 2Z" />
               </svg>
               
-              <h3 className="font-serif text-4xl font-black text-[#800000] mb-4">
+              <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-black text-[#800000] mb-4">
                 Join Our Celebration
               </h3>
-              <p className="text-gray-700 text-lg mb-6 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-gray-700 text-base sm:text-lg mb-6 leading-relaxed max-w-2xl mx-auto px-4">
                 We would be honored to have you witness and bless our union as we begin this beautiful journey together.
               </p>
-              <p className="text-[#800000] font-serif text-xl mb-8 italic">
+              <p className="text-[#800000] font-serif text-lg sm:text-xl mb-8 italic">
                 आपका स्वागत है
               </p>
               
               <a
                 href="/register"
-                className="inline-block px-12 py-4 bg-gradient-to-r from-[#800000] to-[#A00000] text-white rounded-full font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-[#D4AF37]"
+                className="inline-block px-8 sm:px-12 py-3 sm:py-4 bg-gradient-to-r from-[#800000] to-[#A00000] text-white rounded-full font-bold text-base sm:text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-[#D4AF37]"
               >
                 Confirm Your Presence
               </a>

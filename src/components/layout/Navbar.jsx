@@ -3,12 +3,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
-// Decorative Om/Mandala Symbol
-const OmSymbol = () => (
-  <svg className="w-10 h-10" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2L15 9L22 9L16.5 13.5L19 21L12 16L5 21L7.5 13.5L2 9L9 9L12 2Z" />
-    <circle cx="12" cy="12" r="3" className="fill-[#D4AF37]" />
-  </svg>
+// Custom Logo Component
+const Logo = () => (
+  <img 
+    src="/images/pm-logo.png" 
+    alt="Priya & Mihir Logo" 
+    className="h-10 sm:h-12 md:h-14 w-auto object-contain"
+  />
 );
 
 export const Navbar = () => {
@@ -43,20 +44,20 @@ export const Navbar = () => {
       `}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center space-x-3 group">
+        {/* Logo & Brand Name */}
+        <Link to="/" className="flex items-center space-x-4 group">
           <motion.div
-            whileHover={{ scale: 1.1, rotate: 360 }}
-            transition={{ duration: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
             className="relative"
           >
-            <OmSymbol />
+            <Logo />
           </motion.div>
           <div className="flex flex-col">
-            <span className="font-serif text-2xl md:text-3xl font-bold text-[#D4AF37] leading-tight">
+            <span className="font-serif text-lg sm:text-xl md:text-3xl font-bold text-[#D4AF37] leading-tight">
               Priya & Mihir
             </span>
-            <span className="text-xs text-[#D4AF37]/80 font-medium tracking-widest">
+            <span className="text-[10px] sm:text-xs text-[#D4AF37]/80 font-medium tracking-widest">
               The Engagement
             </span>
           </div>
