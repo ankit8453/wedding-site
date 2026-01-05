@@ -96,26 +96,9 @@ export const Footer = () => {
           {/* Row 2: Developer Signature */}
           <div className="mb-3">
             <p className="text-[#D4AF37]/90 text-sm md:text-base font-medium mb-2">
-              Website Handcrafted with ❤️ by <span className="font-bold text-[#D4AF37]">Ankit</span> 
-              <span className="text-[#D4AF37]/70 italic"> (Bride's Brother)</span>
+              Website Handcrafted with ❤️ by <span className="font-bold text-[#D4AF37]">Ankit Pawar</span> 
+              <span className="text-[#D4AF37]/70 italic"></span>
             </p>
-            
-            {/* Contact Details */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-amber-500/80 text-xs md:text-sm">
-              <a 
-                href="mailto:ankit.pawar0786@gmail.com" 
-                className="hover:text-amber-400 transition-colors duration-300 flex items-center gap-1"
-              >
-                📧 ankit.pawar0786@gmail.com
-              </a>
-              <span className="hidden sm:inline text-amber-500/50">|</span>
-              <a 
-                href="tel:+919993448392" 
-                className="hover:text-amber-400 transition-colors duration-300 flex items-center gap-1"
-              >
-                📞 +91 99934 48392
-              </a>
-            </div>
           </div>
 
           {/* Hindi Welcome */}
