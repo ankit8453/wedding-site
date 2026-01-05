@@ -92,19 +92,6 @@ export const Footer = () => {
           <p className="text-[#D4AF37] text-base md:text-lg font-serif mb-3">
             © 2026 The Wedding of Priya & Mihir. Celebrating Love.
           </p>
-          
-          {/* Row 2: Developer Signature */}
-          <div className="mb-3">
-            <p className="text-[#D4AF37]/90 text-sm md:text-base font-medium mb-2">
-              Website Handcrafted with ❤️ by <span className="font-bold text-[#D4AF37]">Ankit Pawar</span> 
-              <span className="text-[#D4AF37]/70 italic"></span>
-            </p>
-          </div>
-
-          {/* Hindi Welcome */}
-          <p className="text-[#D4AF37]/60 text-xs font-serif italic">
-            आपका स्वागत है
-          </p>
         </motion.div>
       </div>
 
